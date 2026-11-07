@@ -1,0 +1,1390 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>每日主题大赛-每日大赛主题解析与参赛作品推荐_每日大赛榜单与玩法指南</title>
+  <meta name="description" content="每日主题大赛聚焦每天更新的创作主题与参赛作品，提供每日大赛榜单、主题解析、优秀作品推荐与参赛攻略。适合想了解每日主题大赛玩法、寻找灵感或追踪热门作品的用户收藏浏览。">
+  <meta name="keywords" content="每日主题大赛,每日大赛,主题创作大赛,每日大赛榜单,参赛作品推荐">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230f172a%22/><text x=%2250%22 y=%2264%22 font-size=%2248%22 text-anchor=%22middle%22 fill=%22%23fbbf24%22 font-family=%22system-ui%22>每</text></svg>">
+  <style>
+    /* 全局变量与基础 */
+    :root {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-soft: #f1f5f9;
+      --border: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-hover: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --radius-card: 16px;
+      --radius-sm: 10px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.1);
+      --max-width: 1200px;
+      --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .dtx-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 导航 */
+    .dtx-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .dtx-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 16px;
+    }
+
+    .dtx-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      flex-shrink: 0;
+    }
+
+    .dtx-logo-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      border-radius: 12px;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+    }
+
+    .dtx-nav-links {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .dtx-nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .dtx-nav-links a {
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border-radius: 40px;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .dtx-nav-links a:hover {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+    }
+
+    .dtx-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dtx-search-mini {
+      display: flex;
+      align-items: center;
+      background: var(--bg-soft);
+      border-radius: 40px;
+      padding: 4px 6px 4px 16px;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .dtx-search-mini:focus-within {
+      border-color: var(--accent);
+      background: #fff;
+    }
+
+    .dtx-search-mini input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 0.88rem;
+      width: 150px;
+      color: var(--text-primary);
+    }
+
+    .dtx-search-mini button {
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .dtx-search-mini button:hover {
+      background: var(--accent-hover);
+    }
+
+    /* 首屏 Banner */
+    .dtx-hero {
+      background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+      border-radius: 0 0 32px 32px;
+      padding: 56px 0 48px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dtx-hero::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .dtx-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+    }
+
+    .dtx-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .dtx-hero h1 span {
+      color: #fbbf24;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .dtx-hero-desc {
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      margin-bottom: 28px;
+      max-width: 620px;
+      line-height: 1.7;
+    }
+
+    .dtx-hero-search {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .dtx-hero-search-box {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 60px;
+      padding: 6px 6px 6px 24px;
+      flex: 1;
+      min-width: 280px;
+      max-width: 480px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .dtx-hero-search-box input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 1rem;
+      padding: 10px 0;
+      background: transparent;
+      color: var(--text-primary);
+    }
+
+    .dtx-hero-search-box button {
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .dtx-hero-search-box button:hover {
+      background: var(--accent-hover);
+    }
+
+    .dtx-hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .dtx-hero-tags a {
+      background: rgba(255, 255, 255, 0.1);
+      color: #e2e8f0;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .dtx-hero-tags a:hover {
+      background: rgba(245, 158, 11, 0.25);
+      border-color: rgba(245, 158, 11, 0.4);
+      color: #fff;
+    }
+
+    /* 通用 section */
+    .dtx-section {
+      margin-bottom: 56px;
+      scroll-margin-top: 80px;
+    }
+
+    .dtx-section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .dtx-section-header h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dtx-section-header h2::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 26px;
+      background: linear-gradient(to bottom, #f59e0b, #fbbf24);
+      border-radius: 4px;
+    }
+
+    .dtx-section-header .dtx-more {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent-dark);
+      transition: color 0.2s;
+    }
+
+    .dtx-section-header .dtx-more:hover {
+      color: var(--accent);
+    }
+
+    /* 简介卡片 */
+    .dtx-intro {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      line-height: 1.85;
+      color: var(--text-secondary);
+    }
+
+    .dtx-intro p {
+      margin-bottom: 16px;
+    }
+
+    .dtx-intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .dtx-intro strong {
+      color: var(--accent-dark);
+      font-weight: 600;
+    }
+
+    /* 卡片网格 */
+    .dtx-grid-6 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .dtx-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .dtx-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .dtx-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .dtx-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .dtx-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 40px;
+      background: var(--bg-soft);
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    .dtx-tag-accent {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+    }
+
+    .dtx-card-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .dtx-card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* 最新更新列表 */
+    .dtx-update-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .dtx-update-item {
+      display: flex;
+      align-items: center;
+      padding: 18px 24px;
+      gap: 16px;
+      transition: background 0.2s;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dtx-update-item:last-child {
+      border-bottom: none;
+    }
+
+    .dtx-update-item:hover {
+      background: #fafbfc;
+    }
+
+    .dtx-update-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 40px;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .dtx-update-name {
+      font-weight: 600;
+      font-size: 1rem;
+      min-width: 140px;
+      color: var(--text-primary);
+    }
+
+    .dtx-update-summary {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      flex: 1;
+    }
+
+    .dtx-update-time {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    /* 分类入口网格 */
+    .dtx-cate-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .dtx-cate-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 20px 18px;
+      text-align: center;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .dtx-cate-item:hover {
+      border-color: var(--accent);
+      background: #fffdf5;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .dtx-cate-icon {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .dtx-cate-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+    }
+
+    .dtx-cate-count {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* 深度解析 */
+    .dtx-deep {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+
+    .dtx-deep h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 24px 0 12px;
+      color: var(--text-primary);
+    }
+
+    .dtx-deep h3:first-child {
+      margin-top: 0;
+    }
+
+    .dtx-deep p {
+      color: var(--text-secondary);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .dtx-deep p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 体验指南 */
+    .dtx-guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .dtx-guide-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .dtx-guide-num {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .dtx-guide-text h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .dtx-guide-text p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* FAQ */
+    .dtx-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .dtx-faq-item {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      padding: 22px 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .dtx-faq-q {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+      display: flex;
+      gap: 10px;
+    }
+
+    .dtx-faq-q::before {
+      content: 'Q';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .dtx-faq-a {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      padding-left: 34px;
+    }
+
+    /* 评论 */
+    .dtx-comment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .dtx-comment-item {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      padding: 20px 22px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .dtx-comment-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .dtx-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .dtx-comment-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .dtx-comment-date {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    .dtx-comment-text {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* 资讯 */
+    .dtx-news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .dtx-news-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s;
+    }
+
+    .dtx-news-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+
+    .dtx-news-date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-dark);
+      background: var(--accent-light);
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 40px;
+      margin-bottom: 12px;
+    }
+
+    .dtx-news-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .dtx-news-summary {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* 页脚 */
+    .dtx-footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 48px 0 28px;
+      border-radius: 24px 24px 0 0;
+      margin-top: 20px;
+    }
+
+    .dtx-footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .dtx-footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .dtx-footer-desc {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: #94a3b8;
+      margin-bottom: 16px;
+    }
+
+    .dtx-footer h4 {
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .dtx-footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .dtx-footer-links a {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      transition: color 0.2s;
+    }
+
+    .dtx-footer-links a:hover {
+      color: #fbbf24;
+    }
+
+    .dtx-footer-bottom {
+      border-top: 1px solid #1e293b;
+      margin-top: 36px;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #64748b;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .dtx-grid-6 { grid-template-columns: repeat(2, 1fr); }
+      .dtx-cate-grid { grid-template-columns: repeat(3, 1fr); }
+      .dtx-news-grid { grid-template-columns: repeat(2, 1fr); }
+      .dtx-footer-inner { grid-template-columns: 1fr 1fr; }
+      .dtx-guide-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .dtx-hero h1 { font-size: 2rem; }
+      .dtx-hero { padding: 36px 0 32px; }
+      .dtx-grid-6 { grid-template-columns: 1fr; }
+      .dtx-cate-grid { grid-template-columns: repeat(2, 1fr); }
+      .dtx-news-grid { grid-template-columns: 1fr; }
+      .dtx-faq-grid { grid-template-columns: 1fr; }
+      .dtx-comment-grid { grid-template-columns: 1fr; }
+      .dtx-guide-grid { grid-template-columns: 1fr; }
+      .dtx-footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .dtx-nav-links { display: none; }
+      .dtx-update-item { flex-wrap: wrap; gap: 8px; }
+      .dtx-update-name { min-width: 100%; }
+      .dtx-deep { padding: 24px; }
+      .dtx-intro { padding: 24px; }
+      .dtx-hero-search-box { min-width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+      .dtx-container { padding: 0 16px; }
+      .dtx-hero h1 { font-size: 1.7rem; }
+      .dtx-section-header h2 { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航 -->
+  <nav class="dtx-nav">
+    <div class="dtx-container dtx-nav-inner">
+      <a href="/" class="dtx-logo">
+        <span class="dtx-logo-badge">每</span>
+        <span>每日主题大赛</span>
+      </a>
+      <div class="dtx-nav-links">
+        <a href="/#dtx-hot">热门推荐</a>
+        <a href="/#dtx-update">最新动态</a>
+        <a href="/#dtx-cate">分类入口</a>
+        <a href="/#dtx-deep">深度解析</a>
+        <a href="/#dtx-guide">体验指南</a>
+        <a href="/#dtx-faq">常见问题</a>
+        <a href="/#dtx-comment">用户评论</a>
+        <a href="/#dtx-news">相关资讯</a>
+      </div>
+      <div class="dtx-nav-actions">
+        <div class="dtx-search-mini">
+          <input type="text" placeholder="搜索主题/作品…" aria-label="搜索">
+          <button>搜索</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 首屏 Banner -->
+  <header class="dtx-hero">
+    <div class="dtx-container dtx-hero-content">
+      <h1><span>每日主题大赛</span> 每日更新主题 · 发现优秀创作</h1>
+      <p class="dtx-hero-desc">每天一个新鲜主题，汇聚全网优质参赛作品。追踪每日大赛榜单、主题解析与创作灵感，找到属于你的每日主题大赛节奏。</p>
+      <div class="dtx-hero-search">
+        <div class="dtx-hero-search-box">
+          <input type="text" placeholder="输入主题关键词，如「光影」「城市」…" aria-label="搜索每日主题大赛">
+          <button>立即搜索</button>
+        </div>
+      </div>
+      <div class="dtx-hero-tags">
+        <a href="/#dtx-hot">今日主题</a>
+        <a href="/#dtx-update">最新参赛</a>
+        <a href="/#dtx-cate">分类浏览</a>
+        <a href="/#dtx-deep">主题解析</a>
+        <a href="/#dtx-faq">参赛指南</a>
+        <a href="/#dtx-comment">社区讨论</a>
+        <a href="/#dtx-news">大赛资讯</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="dtx-container">
+    <!-- 内容简介 -->
+    <section class="dtx-section" id="dtx-intro-section">
+      <div class="dtx-section-header">
+        <h2>关于每日主题大赛</h2>
+      </div>
+      <div class="dtx-intro">
+        <p><strong>每日主题大赛</strong>是一种以“每日更新主题”为核心的创作型活动形式。每天主办方会公布一个全新的主题词或命题方向，参赛者围绕该主题进行创作并提交作品，最终由社区投票或评委评选产生每日榜单。这种形式既保持了创作的新鲜感，也让参与者有了持续输出的节奏感。</p>
+        <p>对于喜欢创作、寻找灵感或单纯想欣赏优秀作品的人来说，<strong>每日主题大赛</strong>提供了一个低门槛、高频率的内容消费场景。你可以在同一天内看到数十甚至上百个不同视角的作品，从摄影、绘画到文字创意，覆盖范围极广。本页面汇集了每日主题大赛的热门作品推荐、榜单追踪、主题解析以及社区讨论，帮助你在海量内容中快速定位感兴趣的方向。</p>
+        <p>无论你是想了解每日大赛的玩法规则，还是想寻找今日主题的灵感参考，或者只是随意浏览近期的高分作品，这里都提供了清晰的分类入口和推荐路径。页面内容会随着每日主题大赛的进程持续更新，适合收藏后反复访问。</p>
+      </div>
+    </section>
+
+    <!-- 热门推荐 -->
+    <section class="dtx-section" id="dtx-hot">
+      <div class="dtx-section-header">
+        <h2>今日热门参赛作品</h2>
+        <a href="/#dtx-hot" class="dtx-more">查看全部 →</a>
+      </div>
+      <div class="dtx-grid-6">
+        <article class="dtx-card">
+          <div class="dtx-card-title">《城市褶皱》</div>
+          <div class="dtx-card-tags">
+            <span class="dtx-tag dtx-tag-accent">今日主题</span>
+            <span class="dtx-tag">摄影</span>
+            <span class="dtx-tag">城市</span>
+          </div>
+          <p class="dtx-card-desc">用长曝光捕捉地铁站台的流动人影，构图层次丰富，今日主题“城市褶皱”下的高分作品。</p>
+          <div class="dtx-card-meta">
+            <span>🔥 热度 9.2</span>
+            <span>🏆 今日第2名</span>
+          </div>
+        </article>
+        <article class="dtx-card">
+          <div class="dtx-card-title">《光影练习册》</div>
+          <div class="dtx-card-tags">
+            <span class="dtx-tag dtx-tag-accent">今日主题</span>
+            <span class="dtx-tag">插画</span>
+            <span class="dtx-tag">光影</span>
+          </div>
+          <p class="dtx-card-desc">通过窗口光投射在旧书页上的渐变，呈现安静而细腻的光影叙事，适合反复观看。</p>
+          <div class="dtx-card-meta">
+            <span>🔥 热度 8.7</span>
+            <span>🏆 今日第5名</span>
+          </div>
+        </article>
+        <article class="dtx-card">
+          <div class="dtx-card-title">《十分钟主题曲》</div>
+          <div class="dtx-card-tags">
+            <span class="dtx-tag dtx-tag-accent">今日主题</span>
+            <span class="dtx-tag">音乐</span>
+            <span class="dtx-tag">即兴</span>
+          </div>
+          <p class="dtx-card-desc">围绕“褶皱”主题即兴创作的钢琴小品，旋律有呼吸感，评论区讨论热烈。</p>
+          <div class="dtx-card-meta">
+            <span>🔥 热度 8.5</span>
+            <span>🏆 今日第7名</span>
+          </div>
+        </article>
+        <article class="dtx-card">
+          <div class="dtx-card-title">《折叠的日常》</div>
+          <div class="dtx-card-tags">
+            <span class="dtx-tag dtx-tag-accent">今日主题</span>
+            <span class="dtx-tag">短视频</span>
+            <span class="dtx-tag">生活</span>
+          </div>
+          <p class="dtx-card-desc">15秒内用折叠镜头串联起早餐到通勤的场景，节奏轻快，是今日主题大赛中少见的叙事型作品。</p>
+          <div class="dtx-card-meta">
+            <span>🔥 热度 8.9</span>
+            <span>🏆 今日第3名</span>
+          </div>
+        </article>
+        <article class="dtx-card">
+          <div class="dtx-card-title">《褶皱纹理研究》</div>
+          <div class="dtx-card-tags">
+            <span class="dtx-tag dtx-tag-accent">今日主题</span>
+            <span class="dtx-tag">设计</span>
+            <span class="dtx-tag">材质</span>
+          </div>
+          <p class="dtx-card-desc">将布料褶皱转化为字体设计，兼具实验性与可读性，是每日主题大赛中设计类的高分常客。</p>
+          <div class="dtx-card-meta">
+            <span>🔥 热度 8.4</span>
+            <span>🏆 今日第9名</span>
+          </div>
+        </article>
+        <article class="dtx-card">
+          <div class="dtx-card-title">《山脊线》</div>
+          <div class="dtx-card-tags">
+            <span class="dtx-tag dtx-tag-accent">今日主题</span>
+            <span class="dtx-tag">风景</span>
+            <span class="dtx-tag">自然</span>
+          </div>
+          <p class="dtx-card-desc">航拍视角下的山脉褶皱，色彩克制但层次分明，评论区有人称其为“今日主题大赛最安静的一张”。</p>
+          <div class="dtx-card-meta">
+            <span>🔥 热度 8.1</span>
+            <span>🏆 今日第12名</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 最新更新 -->
+    <section class="dtx-section" id="dtx-update">
+      <div class="dtx-section-header">
+        <h2>最新参赛与主题动态</h2>
+        <a href="/#dtx-update" class="dtx-more">更多更新 →</a>
+      </div>
+      <div class="dtx-update-list">
+        <div class="dtx-update-item">
+          <span class="dtx-update-badge">新主题</span>
+          <span class="dtx-update-name">今日主题「褶皱」</span>
+          <span class="dtx-update-summary">已公布，参赛窗口开放至今日23:00，目前已有超过240件作品提交。</span>
+          <span class="dtx-update-time">2026-11-07 08:00</span>
+        </div>
+        <div class="dtx-update-item">
+          <span class="dtx-update-badge">榜单</span>
+          <span class="dtx-update-name">每日大赛人气榜</span>
+          <span class="dtx-update-summary">“城市褶皱”反超登顶，与“折叠的日常”票数差距缩小至32票。</span>
+          <span class="dtx-update-time">2026-11-07 15:20</span>
+        </div>
+        <div class="dtx-update-item">
+          <span class="dtx-update-badge">精选</span>
+          <span class="dtx-update-name">编辑推荐《光影练习册》</span>
+          <span class="dtx-update-summary">入选今日主题大赛编辑精选，获得额外曝光位，作者将获得下周主题优先推荐资格。</span>
+          <span class="dtx-update-time">2026-11-07 12:45</span>
+        </div>
+        <div class="dtx-update-item">
+          <span class="dtx-update-badge">规则</span>
+          <span class="dtx-update-name">参赛规则更新</span>
+          <span class="dtx-update-summary">自11月10日起，每日主题大赛允许提交跨媒介组合作品，需在描述中注明所用媒介。</span>
+          <span class="dtx-update-time">2026-11-07 10:10</span>
+        </div>
+        <div class="dtx-update-item">
+          <span class="dtx-update-badge">新主题</span>
+          <span class="dtx-update-name">明日主题预告「回响」</span>
+          <span class="dtx-update-summary">官方已放出明日主题关键词“回响”，可提前准备作品，明日零点开放提交。</span>
+          <span class="dtx-update-time">2026-11-07 18:30</span>
+        </div>
+        <div class="dtx-update-item">
+          <span class="dtx-update-badge">社区</span>
+          <span class="dtx-update-name">主题讨论帖</span>
+          <span class="dtx-update-summary">“褶皱还能怎么拍？”讨论帖热度上升，已收集38种不同解读角度。</span>
+          <span class="dtx-update-time">2026-11-07 14:08</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 分类入口 -->
+    <section class="dtx-section" id="dtx-cate">
+      <div class="dtx-section-header">
+        <h2>按作品类型浏览</h2>
+      </div>
+      <div class="dtx-cate-grid">
+        <a href="/#dtx-hot" class="dtx-cate-item">
+          <div class="dtx-cate-icon">📷</div>
+          <div class="dtx-cate-name">摄影作品</div>
+          <div class="dtx-cate-count">今日 86 件</div>
+        </a>
+        <a href="/#dtx-hot" class="dtx-cate-item">
+          <div class="dtx-cate-icon">🎨</div>
+          <div class="dtx-cate-name">绘画插画</div>
+          <div class="dtx-cate-count">今日 54 件</div>
+        </a>
+        <a href="/#dtx-hot" class="dtx-cate-item">
+          <div class="dtx-cate-icon">✍️</div>
+          <div class="dtx-cate-name">文字创作</div>
+          <div class="dtx-cate-count">今日 39 件</div>
+        </a>
+        <a href="/#dtx-hot" class="dtx-cate-item">
+          <div class="dtx-cate-icon">🎵</div>
+          <div class="dtx-cate-name">音乐音频</div>
+          <div class="dtx-cate-count">今日 22 件</div>
+        </a>
+        <a href="/#dtx-hot" class="dtx-cate-item">
+          <div class="dtx-cate-icon">🎬</div>
+          <div class="dtx-cate-name">短视频</div>
+          <div class="dtx-cate-count">今日 31 件</div>
+        </a>
+        <a href="/#dtx-hot" class="dtx-cate-item">
+          <div class="dtx-cate-icon">🖥️</div>
+          <div class="dtx-cate-name">设计/排版</div>
+          <div class="dtx-cate-count">今日 18 件</div>
+        </a>
+        <a href="/#dtx-hot" class="dtx-cate-item">
+          <div class="dtx-cate-icon">🧩</div>
+          <div class="dtx-cate-name">跨界混合</div>
+          <div class="dtx-cate-count">今日 12 件</div>
+        </a>
+        <a href="/#dtx-hot" class="dtx-cate-item">
+          <div class="dtx-cate-icon">💬</div>
+          <div class="dtx-cate-name">主题讨论</div>
+          <div class="dtx-cate-count">今日 47 帖</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 深度解析 -->
+    <section class="dtx-section" id="dtx-deep">
+      <div class="dtx-section-header">
+        <h2>每日主题大赛深度解析</h2>
+      </div>
+      <div class="dtx-deep">
+        <h3>主题机制与参与节奏</h3>
+        <p>每日主题大赛的核心在于“每日一题”的节奏设计。主题通常在当天早晨公布，给予参赛者大约12-16小时的创作窗口，晚间则进入投票与评选阶段。这种紧凑的时间安排带来了两个明显效果：一是作品往往带有强烈的即时感和直觉性，二是观众可以形成固定的浏览习惯——每天同一时间打开页面，查看新主题和新鲜作品。</p>
+        <p>从内容消费的角度看，<strong>每日主题大赛</strong>的吸引力不在于单件作品的极致打磨，而在于同主题下多元视角的密集碰撞。同一个“褶皱”主题，有人拍衣服纹理，有人写家庭关系中的褶皱，有人用声音模拟纸张折叠的节奏。这种横向对比本身就成为了一种阅读乐趣。</p>
+        <h3>作品类型与评选维度</h3>
+        <p>每日主题大赛覆盖的类型非常宽泛，摄影、插画、文字、音乐、短视频、设计稿都可以参与。评选通常综合社区投票与编辑推荐两个维度，因此榜单上既有大众喜闻乐见的直白作品，也有编辑偏好的实验性创作。对于普通浏览者来说，建议不要只看榜首，第5到第15名之间往往藏着更有趣的切入点。</p>
+        <p>如果你打算参与每日主题大赛，可以从两个方向入手：一是贴合主题字面意思，用扎实的技术完成度争取投票；二是反向解读主题，用巧思制造记忆点。两种策略都有成功案例，但后者在社区讨论中更容易获得额外传播。</p>
+        <h3>适合人群与消费建议</h3>
+        <p>每日主题大赛适合三类人群：一是创作者，可以通过每日命题训练自己的快速反应能力；二是内容消费者，喜欢在短时间内浏览大量风格各异的作品；三是社群参与者，享受投票、评论和主题讨论的氛围。如果你属于前两类，建议每天固定一个时间段浏览，比如午休或晚间，形成节奏后更容易坚持。</p>
+        <p>在比较同类主题创作社区时，<strong>每日主题大赛</strong>的特点在于更新频率高、主题覆盖面广，但单件作品的深度可能不如月度或季度赛事。因此它更适合作为日常灵感来源和创作热身，而非追求终极作品打磨的场合。</p>
+      </div>
+    </section>
+
+    <!-- 体验指南 -->
+    <section class="dtx-section" id="dtx-guide">
+      <div class="dtx-section-header">
+        <h2>浏览与参与体验指南</h2>
+      </div>
+      <div class="dtx-guide-grid">
+        <div class="dtx-guide-card">
+          <div class="dtx-guide-num">01</div>
+          <div class="dtx-guide-text">
+            <h4>结构清晰，快速定位</h4>
+            <p>页面按热门推荐、最新动态、分类入口、深度解析分层组织，无论你是想随便看看还是专门研究某个主题，都能在几步内找到对应板块。</p>
+          </div>
+        </div>
+        <div class="dtx-guide-card">
+          <div class="dtx-guide-num">02</div>
+          <div class="dtx-guide-text">
+            <h4>分类筛选，按需浏览</h4>
+            <p>摄影、插画、文字、音乐等类型入口一目了然，点击即可跳转至对应推荐区域，避免在大量卡片中盲目滚动。</p>
+          </div>
+        </div>
+        <div class="dtx-guide-card">
+          <div class="dtx-guide-num">03</div>
+          <div class="dtx-guide-text">
+            <h4>移动端友好阅读</h4>
+            <p>卡片和列表在手机上自动调整为单列布局，评论和FAQ也保持良好的可读性，适合通勤或碎片时间浏览每日主题大赛动态。</p>
+          </div>
+        </div>
+        <div class="dtx-guide-card">
+          <div class="dtx-guide-num">04</div>
+          <div class="dtx-guide-text">
+            <h4>收藏后追更</h4>
+            <p>每日主题大赛每日更新，建议将页面加入收藏夹，第二天回来即可看到新主题、新榜单和新评论，形成稳定的追踪习惯。</p>
+          </div>
+        </div>
+        <div class="dtx-guide-card">
+          <div class="dtx-guide-num">05</div>
+          <div class="dtx-guide-text">
+            <h4>相关推荐扩展路径</h4>
+            <p>每张作品卡片下方的标签和分类入口互相连接，从一件作品出发可以顺势浏览同作者、同主题或同类型的其他作品。</p>
+          </div>
+        </div>
+        <div class="dtx-guide-card">
+          <div class="dtx-guide-num">06</div>
+          <div class="dtx-guide-text">
+            <h4>社区讨论辅助理解</h4>
+            <p>评论区呈现了不同观众的直观反应，包括对主题的多元解读和参赛建议，有助于你判断某件作品是否值得点开细看。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="dtx-section" id="dtx-faq">
+      <div class="dtx-section-header">
+        <h2>每日主题大赛常见问题</h2>
+      </div>
+      <div class="dtx-faq-grid">
+        <div class="dtx-faq-item">
+          <div class="dtx-faq-q">每日主题大赛每天的主题从哪里获取？</div>
+          <div class="dtx-faq-a">主题通常由主办方在每天早晨8点左右通过官方页面和社区置顶帖公布，部分日期会提前一晚放出预告。本页面也会在“最新参赛与主题动态”中同步更新，关注该板块即可不错过。</div>
+        </div>
+        <div class="dtx-faq-item">
+          <div class="dtx-faq-q">参与每日主题大赛需要什么基础？</div>
+          <div class="dtx-faq-a">不需要专业门槛。每日主题大赛覆盖摄影、文字、绘画、音乐等多种类型，你可以选择自己最熟悉的媒介参与。大多数作品提交只需上传文件并附上简短说明，重点在于对主题的理解和表达。</div>
+        </div>
+        <div class="dtx-faq-item">
+          <div class="dtx-faq-q">如何查看每日大赛的完整榜单？</div>
+          <div class="dtx-faq-a">页面“今日热门参赛作品”板块展示的是综合热度较高的作品，完整榜单可在页面顶部的“大赛资讯”或分类入口进一步浏览。榜单通常在晚间22点前后趋于稳定。</div>
+        </div>
+        <div class="dtx-faq-item">
+          <div class="dtx-faq-q">每日主题大赛的作品可以转载吗？</div>
+          <div class="dtx-faq-a">作品版权归原作者所有。如需转载或引用，建议先通过作品页面联系作者获取授权。本页面仅作为展示和索引用途，不提供作品源文件下载。</div>
+        </div>
+        <div class="dtx-faq-item">
+          <div class="dtx-faq-q">新手适合从哪类主题开始参与？</div>
+          <div class="dtx-faq-a">建议从具象名词主题（如“窗户”“影子”“街道”）开始，这类主题方向明确，容易找到切入点。等熟悉节奏后，再尝试抽象主题（如“回响”“延迟”），挑战性和趣味性都更高。</div>
+        </div>
+        <div class="dtx-faq-item">
+          <div class="dtx-faq-q">每日主题大赛和月度大赛有什么区别？</div>
+          <div class="dtx-faq-a">每日主题大赛侧重高频、快速、同题竞技，适合日常练习和灵感碰撞；月度大赛通常有更长的创作周期和更严格的评审流程，作品完成度更高。两者可以互补参与。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 用户评论 -->
+    <section class="dtx-section" id="dtx-comment">
+      <div class="dtx-section-header">
+        <h2>社区用户评论</h2>
+      </div>
+      <div class="dtx-comment-grid">
+        <div class="dtx-comment-item">
+          <div class="dtx-comment-head">
+            <div class="dtx-avatar">林</div>
+            <span class="dtx-comment-name">林小满</span>
+            <span class="dtx-comment-date">2026-11-06</span>
+          </div>
+          <p class="dtx-comment-text">今天的“褶皱”主题太对我胃口了，刷到了好几张很妙的摄影作品。建议从第8名往后翻，前面几张投票高但有点同质化。</p>
+        </div>
+        <div class="dtx-comment-item">
+          <div class="dtx-comment-head">
+            <div class="dtx-avatar">陈</div>
+            <span class="dtx-comment-name">陈默</span>
+            <span class="dtx-comment-date">2026-11-05</span>
+          </div>
+          <p class="dtx-comment-text">连续追了一周每日主题大赛，感觉自己的观察力都变敏锐了。昨天那个“声音的形状”主题，有个作者用录音拼了一段城市节奏，很惊艳。</p>
+        </div>
+        <div class="dtx-comment-item">
+          <div class="dtx-comment-head">
+            <div class="dtx-avatar">阿</div>
+            <span class="dtx-comment-name">阿茶</span>
+            <span class="dtx-comment-date">2026-11-05</span>
+          </div>
+          <p class="dtx-comment-text">有个小建议，希望每日主题大赛的投票能增加“编辑精选”和“社区票选”两个分榜，现在混在一起有时候好作品被冲掉了。</p>
+        </div>
+        <div class="dtx-comment-item">
+          <div class="dtx-comment-head">
+            <div class="dtx-avatar">王</div>
+            <span class="dtx-comment-name">王大锤</span>
+            <span class="dtx-comment-date">2026-11-04</span>
+          </div>
+          <p class="dtx-comment-text">第一次参加每日主题大赛，提交了一张手机拍的“折叠椅”，居然进了前30，有点意外。门槛确实不高，大家都可以试试。</p>
+        </div>
+        <div class="dtx-comment-item">
+          <div class="dtx-comment-head">
+            <div class="dtx-avatar">周</div>
+            <span class="dtx-comment-name">周舟</span>
+            <span class="dtx-comment-date">2026-11-03</span>
+          </div>
+          <p class="dtx-comment-text">有些作品标题和主题完全对不上，也能拿高票，稍微有点影响浏览体验。希望每日主题大赛的审核再严格一点。</p>
+        </div>
+        <div class="dtx-comment-item">
+          <div class="dtx-comment-head">
+            <div class="dtx-avatar">许</div>
+            <span class="dtx-comment-name">许知远</span>
+            <span class="dtx-comment-date">2026-11-03</span>
+          </div>
+          <p class="dtx-comment-text">页面整理得不错，分类清楚，找插画类作品很方便。每日主题大赛资讯更新也及时，基本每天来看一次就够了。</p>
+        </div>
+        <div class="dtx-comment-item">
+          <div class="dtx-comment-head">
+            <div class="dtx-avatar">李</div>
+            <span class="dtx-comment-name">李慢慢</span>
+            <span class="dtx-comment-date">2026-11-02</span>
+          </div>
+          <p class="dtx-comment-text">明日主题“回响”已经想好方向了，准备用旧磁带和录音机做一组静物。有一起参加的吗？评论区交流下思路。</p>
+        </div>
+        <div class="dtx-comment-item">
+          <div class="dtx-comment-head">
+            <div class="dtx-avatar">赵</div>
+            <span class="dtx-comment-name">赵四</span>
+            <span class="dtx-comment-date">2026-11-01</span>
+          </div>
+          <p class="dtx-comment-text">每日主题大赛比想象中成熟，有些作者连续一周都在榜上，水平很稳定。但也希望能多给新人一些曝光机会。</p>
+        </div>
+        <div class="dtx-comment-item">
+          <div class="dtx-comment-head">
+            <div class="dtx-avatar">孙</div>
+            <span class="dtx-comment-name">孙悟饭</span>
+            <span class="dtx-comment-date">2026-10-31</span>
+          </div>
+          <p class="dtx-comment-text">今天的音乐类作品明显少了，还是更喜欢看混合类型的主题。建议每日主题大赛偶尔来个“不限媒介”的开放日。</p>
+        </div>
+        <div class="dtx-comment-item">
+          <div class="dtx-comment-head">
+            <div class="dtx-avatar">吴</div>
+            <span class="dtx-comment-name">吴所谓</span>
+            <span class="dtx-comment-date">2026-10-30</span>
+          </div>
+          <p class="dtx-comment-text">在每日主题大赛里发现了好几个宝藏创作者，顺着主页看了他们之前的作品，比单日榜单更有意思。</p>
+        </div>
+        <div class="dtx-comment-item">
+          <div class="dtx-comment-head">
+            <div class="dtx-avatar">郑</div>
+            <span class="dtx-comment-name">郑小跑</span>
+            <span class="dtx-comment-date">2026-10-29</span>
+          </div>
+          <p class="dtx-comment-text">评论区的讨论氛围还可以，偶尔有争论但基本围绕作品本身。希望保持住，别变成互相攻击的地方。</p>
+        </div>
+        <div class="dtx-comment-item">
+          <div class="dtx-comment-head">
+            <div class="dtx-avatar">钱</div>
+            <span class="dtx-comment-name">钱多多</span>
+            <span class="dtx-comment-date">2026-10-28</span>
+          </div>
+          <p class="dtx-comment-text">周末的主题往往更有意思，可能是因为大家时间充裕。每日主题大赛要是能推出一个“周末特别主题”就更好了。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 相关资讯 -->
+    <section class="dtx-section" id="dtx-news">
+      <div class="dtx-section-header">
+        <h2>每日主题大赛相关资讯</h2>
+      </div>
+      <div class="dtx-news-grid">
+        <div class="dtx-news-card">
+          <span class="dtx-news-date">2026-11-07</span>
+          <div class="dtx-news-title">每日主题大赛新增跨界合作赛道</div>
+          <p class="dtx-news-summary">官方宣布自11月中旬起，每日主题大赛将增设“跨界合作”组别，鼓励两人以上组队参赛，作品类型不限，评审将额外关注协作完成度。</p>
+        </div>
+        <div class="dtx-news-card">
+          <span class="dtx-news-date">2026-11-06</span>
+          <div class="dtx-news-title">本周主题回顾：从“褶皱”到“回响”</div>
+          <p class="dtx-news-summary">过去一周的每日主题大赛涵盖了纹理、声音、城市空间等方向，其中“褶皱”主题提交量最高，达到312件，创下近期纪录。</p>
+        </div>
+        <div class="dtx-news-card">
+          <span class="dtx-news-date">2026-11-05</span>
+          <div class="dtx-news-title">人气作者访谈：如何在每日主题大赛稳定输出</div>
+          <p class="dtx-news-summary">连续七天进入前十的创作者“阿岛”分享了自己的方法：提前一周储备素材库，主题公布后快速匹配，不追求完美但追求完成度。</p>
+        </div>
+        <div class="dtx-news-card">
+          <span class="dtx-news-date">2026-11-04</span>
+          <div class="dtx-news-title">每日主题大赛作品精选集上线</div>
+          <p class="dtx-news-summary">十月精选集已开放浏览，收录了当月每日主题大赛中编辑推荐的60件作品，按主题日期排列，适合一次性回顾。</p>
+        </div>
+        <div class="dtx-news-card">
+          <span class="dtx-news-date">2026-11-03</span>
+          <div class="dtx-news-title">社区投票机制微调公告</div>
+          <p class="dtx-news-summary">为减少刷票行为，每日主题大赛的投票权重将引入账号活跃度系数，新注册账号当日投票权重略有下调，具体规则见公告页。</p>
+        </div>
+        <div class="dtx-news-card">
+          <span class="dtx-news-date">2026-11-01</span>
+          <div class="dtx-news-title">十一月主题日历出炉，首周聚焦“痕迹”</div>
+          <p class="dtx-news-summary">官方公布了十一月部分主题排期，首周围绕“痕迹”展开，后续包括“窗”“延迟”“碎片”等方向，参赛者可提前规划创作节奏。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="dtx-footer">
+    <div class="dtx-container">
+      <div class="dtx-footer-inner">
+        <div>
+          <div class="dtx-footer-brand">
+            <span class="dtx-logo-badge" style="width:32px;height:32px;font-size:1rem;">每</span>
+            每日主题大赛
+          </div>
+          <p class="dtx-footer-desc">每日更新主题，汇聚多元创作。这里是每日主题大赛的资讯与作品索引页，提供榜单追踪、主题解析和社区讨论参考。</p>
+          <p style="font-size:0.78rem;color:#64748b;">本站内容为信息聚合与导航，作品版权归原作者所有。</p>
+        </div>
+        <div>
+          <h4>快速导航</h4>
+          <div class="dtx-footer-links">
+            <a href="/#dtx-hot">热门推荐</a>
+            <a href="/#dtx-update">最新动态</a>
+            <a href="/#dtx-cate">分类入口</a>
+            <a href="/#dtx-deep">深度解析</a>
+          </div>
+        </div>
+        <div>
+          <h4>参与帮助</h4>
+          <div class="dtx-footer-links">
+            <a href="/#dtx-guide">体验指南</a>
+            <a href="/#dtx-faq">常见问题</a>
+            <a href="/#dtx-comment">用户评论</a>
+            <a href="/#dtx-news">相关资讯</a>
+          </div>
+        </div>
+        <div>
+          <h4>友情链接</h4>
+          <div class="dtx-footer-links">
+            <a href="/">主题创作社区</a>
+            <a href="/">每日灵感库</a>
+            <a href="/">作品展示平台</a>
+            <a href="/">大赛公告页</a>
+          </div>
+        </div>
+      </div>
+      <div class="dtx-footer-bottom">
+        <span>© 2026 每日主题大赛 · 内容索引页面</span>
+        <span>免责声明：本页面信息仅供参考，具体规则以官方发布为准</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+          </html>
