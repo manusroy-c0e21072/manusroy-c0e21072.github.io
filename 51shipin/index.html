@@ -1,0 +1,1099 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>51视频官网入口-在线视频推荐与观看指南_热门影视资源导航</title>
+  <meta name="description" content="51视频官网入口提供最新影视资源导航与观看指南，涵盖热门电影、剧集、短剧及综艺分类。这里整理官方入口、推荐片单与实时更新动态，帮助您快速找到想看的内容，适合追剧用户收藏参考。">
+  <meta name="keywords" content="51视频官网入口,51视频在线观看,51视频资源导航,影视推荐入口,51视频最新地址">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232b3b8f'/%3E%3Cpath d='M25 32h50v36H25z' fill='%23fff' opacity='.9'/%3E%3Cpath d='M52 44l18 6-18 6z' fill='%232b3b8f'/%3E%3C/svg%3E">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+
+    :root {
+      --brand: #1b2a5c;
+      --brand-light: #3b4f9e;
+      --accent: #e8541e;
+      --accent-soft: #fde8e0;
+      --bg-page: #f7f8fc;
+      --surface: #ffffff;
+      --text-main: #1a1f2e;
+      --text-muted: #5d6478;
+      --border-light: #e9ecf3;
+      --radius-card: 20px;
+      --radius-btn: 40px;
+      --shadow-sm: 0 8px 20px rgba(0, 20, 50, 0.06);
+      --shadow-hover: 0 18px 32px rgba(0, 20, 50, 0.12);
+      --transition: 0.22s ease;
+      --max-width: 1200px;
+    }
+
+    body {
+      background: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ----- 通用卡片 / 按钮 ----- */
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.6rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.95rem;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition);
+      cursor: default;
+    }
+
+    .btn:hover {
+      background: var(--brand-light);
+      transform: scale(1.02);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--brand);
+      border: 1.5px solid var(--brand);
+    }
+
+    .btn-outline:hover {
+      background: rgba(27, 42, 92, 0.05);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      background: #eef1f8;
+      color: var(--brand);
+      margin-right: 0.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .tag-accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    /* ----- 头部导航 ----- */
+    .top-nav {
+      background: var(--surface);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.5rem;
+      padding: 0.8rem 0;
+    }
+
+    .logo-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 800;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--brand);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1.8rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-search {
+      display: flex;
+      align-items: center;
+      background: var(--bg-page);
+      border-radius: 40px;
+      padding: 0.3rem 0.3rem 0.3rem 1rem;
+      border: 1px solid var(--border-light);
+    }
+
+    .nav-search input {
+      border: none;
+      background: transparent;
+      padding: 0.5rem 0.5rem 0.5rem 0;
+      font-size: 0.9rem;
+      outline: none;
+      width: 160px;
+    }
+
+    .nav-search .search-btn {
+      background: var(--accent);
+      border: none;
+      border-radius: 40px;
+      padding: 0.45rem 1rem;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: default;
+    }
+
+    /* ----- 首屏 Banner（左文右封面风格） ----- */
+    .hero-banner {
+      background: linear-gradient(115deg, #f0f3fc 0%, #ffffff 70%);
+      border-radius: 36px;
+      margin: 2rem 0 2.5rem;
+      padding: 2.8rem 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-text {
+      flex: 1 1 360px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--brand);
+      margin-bottom: 1rem;
+    }
+
+    .hero-text .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+      max-width: 500px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-buttons .btn {
+      padding: 0.8rem 1.8rem;
+      font-size: 1rem;
+    }
+
+    .hero-search {
+      display: flex;
+      background: #fff;
+      border-radius: 60px;
+      padding: 0.3rem;
+      box-shadow: 0 10px 28px rgba(0, 20, 50, 0.08);
+      max-width: 460px;
+      align-items: center;
+      border: 1px solid var(--border-light);
+    }
+
+    .hero-search input {
+      flex: 1;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 60px;
+      outline: none;
+      background: transparent;
+    }
+
+    .hero-search .btn-search {
+      background: var(--brand);
+      border: none;
+      padding: 0.7rem 2rem;
+      border-radius: 60px;
+      color: #fff;
+      font-weight: 600;
+      cursor: default;
+    }
+
+    .hero-cover {
+      flex: 0 0 220px;
+      height: 180px;
+      background: linear-gradient(145deg, #2b3b8f, #6b7cc4);
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      box-shadow: 0 16px 30px rgba(27, 42, 92, 0.25);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* ----- 通用 section 间距 ----- */
+    .section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--brand);
+    }
+
+    .section-header .more-link {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    /* ----- 分类入口 ----- */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+
+    .cat-item {
+      background: var(--surface);
+      border-radius: 60px;
+      padding: 1rem 0.5rem;
+      text-align: center;
+      font-weight: 600;
+      color: var(--brand);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+      font-size: 0.95rem;
+      border: 1px solid var(--border-light);
+    }
+
+    .cat-item:hover {
+      background: var(--brand);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    /* ----- 推荐卡片网格（封面卡片+评分） ----- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .media-card {
+      padding: 1.2rem 1.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .media-cover {
+      height: 130px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #d9e0f0, #b6c2e0);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3b4f9e;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+    }
+
+    .media-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+    }
+
+    .media-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .media-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+      flex: 1;
+    }
+
+    .media-stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-light);
+      padding-top: 0.8rem;
+    }
+
+    /* ----- 最新更新列表 ----- */
+    .update-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .update-item {
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 1.2rem 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+      border-left: 5px solid var(--accent);
+    }
+
+    .update-item:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .update-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--brand);
+    }
+
+    .update-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+    }
+
+    .update-time {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: #f0f2f8;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+    }
+
+    /* ----- 深度解析正文（双栏推荐+正文简化） ----- */
+    .deep-analysis {
+      background: var(--surface);
+      border-radius: 32px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .deep-analysis h2 {
+      font-size: 1.9rem;
+      color: var(--brand);
+      margin-bottom: 1.2rem;
+    }
+
+    .deep-analysis p {
+      margin-bottom: 1.2rem;
+      color: #2d3348;
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .highlight-box {
+      background: #f0f3fc;
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+      margin: 1.8rem 0;
+      border-left: 6px solid var(--accent);
+    }
+
+    /* ----- FAQ 知识库式 ----- */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      padding: 1.6rem;
+      border-radius: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-q {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--brand);
+      margin-bottom: 0.6rem;
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .faq-q span {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .faq-a {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ----- 评论列表（长短混合） ----- */
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .comment-item {
+      display: flex;
+      gap: 1rem;
+      background: var(--surface);
+      padding: 1.2rem 1.5rem;
+      border-radius: 24px;
+      box-shadow: var(--shadow-sm);
+      align-items: flex-start;
+    }
+
+    .comment-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--brand), var(--brand-light));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .comment-body {
+      flex: 1;
+    }
+
+    .comment-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .comment-name {
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .comment-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .comment-text {
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+
+    /* ----- 资讯卡片 ----- */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .news-card {
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+    }
+
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .news-date {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .news-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+      color: var(--brand);
+    }
+
+    .news-summary {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* ----- 页脚 ----- */
+    .footer {
+      background: var(--brand);
+      color: #cdd3e6;
+      margin-top: 4rem;
+      padding: 3rem 0 2rem;
+      border-radius: 40px 40px 0 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-brand p {
+      max-width: 360px;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-top: 0.8rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #b6c0dd;
+      text-decoration: none;
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: #fff;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #9aa5c9;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .hero-banner {
+        padding: 1.8rem;
+      }
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      .hero-cover {
+        display: none;
+      }
+      .nav-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .nav-links {
+        overflow-x: auto;
+        padding-bottom: 0.2rem;
+      }
+      .nav-search {
+        width: 100%;
+      }
+      .nav-search input {
+        width: 100%;
+      }
+      .deep-analysis {
+        padding: 1.5rem;
+      }
+      .section-header h2 {
+        font-size: 1.5rem;
+      }
+      .footer-inner {
+        flex-direction: column;
+        gap: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航 -->
+  <header class="top-nav">
+    <div class="container nav-inner">
+      <a href="/#hero" class="logo-badge">
+        <span class="logo-icon">51</span>
+        <span>51视频官网入口</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#hot">热门推荐</a></li>
+        <li><a href="/#latest">最新更新</a></li>
+        <li><a href="/#category">分类导航</a></li>
+        <li><a href="/#analysis">深度解析</a></li>
+        <li><a href="/#faq">常见问题</a></li>
+        <li><a href="/#news">资讯动态</a></li>
+      </ul>
+      <div class="nav-search">
+        <input type="text" placeholder="搜索影片、剧集、短剧..." aria-label="搜索框">
+        <button class="search-btn" aria-label="搜索">搜索</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 首屏 Banner -->
+    <section id="hero" class="hero-banner">
+      <div class="hero-text">
+        <h1>51视频官网入口 · 影视资源导航与观看指南</h1>
+        <p class="hero-sub">聚合热门电影、剧集、短剧与综艺资源，提供清晰的分类入口和实时更新动态。无论你是追剧达人还是电影爱好者，都能在这里快速找到想看的内容。</p>
+        <div class="hero-buttons">
+          <a href="/#hot" class="btn">热门推荐</a>
+          <a href="/#latest" class="btn btn-outline">最新更新</a>
+          <a href="/#category" class="btn btn-outline">分类浏览</a>
+        </div>
+        <div class="hero-search">
+          <input type="text" placeholder="输入片名或演员名称..." aria-label="站内搜索">
+          <button class="btn-search">搜索</button>
+        </div>
+      </div>
+      <div class="hero-cover">51视频<br>官网入口</div>
+    </section>
+
+    <!-- 快捷分类入口 -->
+    <section id="category" class="section">
+      <div class="section-header">
+        <h2>快捷分类入口</h2>
+        <a href="/#category" class="more-link">全部分类 →</a>
+      </div>
+      <div class="category-grid">
+        <div class="cat-item">热门电影</div>
+        <div class="cat-item">电视剧集</div>
+        <div class="cat-item">微短剧</div>
+        <div class="cat-item">综艺真人秀</div>
+        <div class="cat-item">动漫番剧</div>
+        <div class="cat-item">纪录片</div>
+        <div class="cat-item">体育赛事</div>
+        <div class="cat-item">音乐现场</div>
+      </div>
+    </section>
+
+    <!-- 热门内容推荐 -->
+    <section id="hot" class="section">
+      <div class="section-header">
+        <h2>热门内容推荐</h2>
+        <a href="/#hot" class="more-link">更多热门 →</a>
+      </div>
+      <div class="card-grid">
+        <div class="card media-card">
+          <div class="media-cover">暗夜追凶</div>
+          <h3>暗夜追凶</h3>
+          <div class="media-meta"><span class="tag">悬疑</span><span class="tag tag-accent">犯罪</span></div>
+          <p class="media-desc">刑警与连环杀手之间的心理博弈，节奏紧凑反转不断。</p>
+          <div class="media-stats"><span>🔥 热度 9862</span><span>更新至12集</span></div>
+        </div>
+        <div class="card media-card">
+          <div class="media-cover">她的城</div>
+          <h3>她的城</h3>
+          <div class="media-meta"><span class="tag">都市</span><span class="tag tag-accent">情感</span></div>
+          <p class="media-desc">三位女性在都市中的成长与抉择，真实细腻引发共鸣。</p>
+          <div class="media-stats"><span>🔥 热度 8750</span><span>全24集</span></div>
+        </div>
+        <div class="card media-card">
+          <div class="media-cover">穿越星河</div>
+          <h3>穿越星河</h3>
+          <div class="media-meta"><span class="tag">科幻</span><span class="tag tag-accent">冒险</span></div>
+          <p class="media-desc">硬核科幻设定，人类星际探索的壮丽史诗。</p>
+          <div class="media-stats"><span>🔥 热度 8230</span><span>更新至08集</span></div>
+        </div>
+        <div class="card media-card">
+          <div class="media-cover">大厨驾到</div>
+          <h3>大厨驾到</h3>
+          <div class="media-meta"><span class="tag">美食</span><span class="tag tag-accent">治愈</span></div>
+          <p class="media-desc">落魄主厨重回街头小店，用美食治愈人心。</p>
+          <div class="media-stats"><span>🔥 热度 7910</span><span>全30集</span></div>
+        </div>
+        <div class="card media-card">
+          <div class="media-cover">极限挑战</div>
+          <h3>极限挑战·户外季</h3>
+          <div class="media-meta"><span class="tag">综艺</span><span class="tag tag-accent">真人秀</span></div>
+          <p class="media-desc">明星嘉宾深入荒野，完成不可能的任务，笑点与泪点齐飞。</p>
+          <div class="media-stats"><span>🔥 热度 7650</span><span>每周五更新</span></div>
+        </div>
+        <div class="card media-card">
+          <div class="media-cover">剑影江湖</div>
+          <h3>剑影江湖</h3>
+          <div class="media-meta"><span class="tag">武侠</span><span class="tag tag-accent">古装</span></div>
+          <p class="media-desc">快意恩仇的武侠世界，刀光剑影中的人性抉择。</p>
+          <div class="media-stats"><span>🔥 热度 7100</span><span>更新至20集</span></div>
+        </div>
+        <div class="card media-card">
+          <div class="media-cover">萌宠日记</div>
+          <h3>萌宠日记</h3>
+          <div class="media-meta"><span class="tag">短剧</span><span class="tag tag-accent">喜剧</span></div>
+          <p class="media-desc">每集5分钟，萌宠与主人的搞笑日常，轻松解压。</p>
+          <div class="media-stats"><span>🔥 热度 6890</span><span>全40集</span></div>
+        </div>
+        <div class="card media-card">
+          <div class="media-cover">真相背后</div>
+          <h3>真相背后</h3>
+          <div class="media-meta"><span class="tag">纪录片</span><span class="tag tag-accent">社会</span></div>
+          <p class="media-desc">深入调查社会事件，还原事实真相，引人深思。</p>
+          <div class="media-stats"><span>🔥 热度 6230</span><span>全6集</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 最新更新 / 热播动态 -->
+    <section id="latest" class="section">
+      <div class="section-header">
+        <h2>最新更新 · 热播动态</h2>
+        <a href="/#latest" class="more-link">查看全部 →</a>
+      </div>
+      <div class="update-list">
+        <div class="update-item">
+          <div><div class="update-title">《暗夜追凶》第12集上线</div><div class="update-desc">真凶身份浮出水面，刑警队长面临艰难抉择。</div></div>
+          <div class="update-time">2026-11-07</div>
+        </div>
+        <div class="update-item">
+          <div><div class="update-title">《极限挑战·户外季》今晚直播</div><div class="update-desc">嘉宾挑战高空极限，直播间弹幕互动赢好礼。</div></div>
+          <div class="update-time">2026-11-07</div>
+        </div>
+        <div class="update-item">
+          <div><div class="update-title">微短剧《萌宠日记》今日首播</div><div class="update-desc">一口气上线10集，萌宠搞笑治愈你的周末。</div></div>
+          <div class="update-time">2026-11-06</div>
+        </div>
+        <div class="update-item">
+          <div><div class="update-title">《穿越星河》第8集更新</div><div class="update-desc">飞船遭遇未知信号，宇航员发现惊人秘密。</div></div>
+          <div class="update-time">2026-11-06</div>
+        </div>
+        <div class="update-item">
+          <div><div class="update-title">纪录片《真相背后》全网上线</div><div class="update-desc">聚焦年度社会热点，六集完整版一次性放出。</div></div>
+          <div class="update-time">2026-11-05</div>
+        </div>
+        <div class="update-item">
+          <div><div class="update-title">《她的城》会员收官</div><div class="update-desc">大结局点映礼同步直播，主创在线陪看。</div></div>
+          <div class="update-time">2026-11-05</div>
+        </div>
+        <div class="update-item">
+          <div><div class="update-title">《大厨驾到》番外篇上线</div><div class="update-desc">主角团重回小馆，神秘客人带来全新故事。</div></div>
+          <div class="update-time">2026-11-04</div>
+        </div>
+        <div class="update-item">
+          <div><div class="update-title">《剑影江湖》第20集更新</div><div class="update-desc">男主身世揭秘，江湖恩怨再起波澜。</div></div>
+          <div class="update-time">2026-11-04</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 深度解析正文 -->
+    <section id="analysis" class="section">
+      <div class="deep-analysis">
+        <h2>深度解析：51视频官网入口的内容生态与观看指南</h2>
+        <p>对于许多观众来说，找到一个稳定、清晰、分类合理的视频入口是享受影视内容的第一步。51视频官网入口正是为此而生——它不只是一个简单的入口链接，更是一个经过精心梳理的内容导航站。无论你是想追当下最热的悬疑剧集，还是想找一部轻松下饭的微短剧，又或者希望陪家人看一档综艺节目，这里都能帮你快速定位。</p>
+        <p>从内容类型来看，51视频官网入口覆盖了电影、电视剧、微短剧、综艺、动漫、纪录片等多个品类。电影方面以近两年热门商业片和经典修复片为主；电视剧集则侧重悬疑、都市、古装等大众题材，同时保持每周多部新剧同步上线。微短剧是近两年的流量黑马，每集5-10分钟，节奏快、爽点密集，特别适合通勤或碎片时间观看。综艺和纪录片则提供了更轻松的娱乐和深度思考的选择。</p>
+        <div class="highlight-box">
+          <p style="font-weight:700; color:var(--brand); margin-bottom:0.5rem;">🎯 51视频官网入口的三大特点：</p>
+          <p style="margin-bottom:0.5rem;">① 分类清晰：按类型、地区、年份、热度多维度筛选，找片不迷路。</p>
+          <p style="margin-bottom:0.5rem;">② 更新及时：热门剧集与平台同步更新，短剧甚至能当天上线。</p>
+          <p style="margin-bottom:0;">③ 推荐精准：基于观看偏好的智能推荐，以及人工编辑精选片单。</p>
+        </div>
+        <p>在观看体验上，51视频官网入口注重页面结构的清晰度。每个内容卡片都标注了类型标签、热度值和更新状态，方便用户快速判断是否值得点开。对于追更用户，更新列表按照时间倒序排列，最近更新的内容一目了然。此外，页面还提供了丰富的相关推荐，当你点开一部剧的详情页，下方会出现“喜欢这部剧的人也在看”之类的模块，帮助扩展观看路径。</p>
+        <p>如果你经常使用移动设备，51视频官网入口的响应式设计也能保证在小屏幕上获得良好的阅读和浏览体验。分类入口和搜索框都做了适配，手指点击区域足够大，不会出现误触。同时，页面加载速度经过优化，不会因为过多的图片或脚本而导致卡顿。</p>
+        <p>当然，任何内容平台都需要用户自己判断内容是否符合口味。我们建议新用户先从热门榜单和编辑推荐入手，找到自己感兴趣的类型后，再通过分类筛选深入探索。如果你对某个演员或导演感兴趣，也可以利用搜索功能快速查找相关作品。总之，51视频官网入口的目标是让“找视频”这件事变得简单、高效、有乐趣。</p>
+      </div>
+    </section>
+
+    <!-- FAQ 常见问题（知识库式） -->
+    <section id="faq" class="section">
+      <div class="section-header">
+        <h2>常见问题</h2>
+        <a href="/#faq" class="more-link">更多答疑 →</a>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-q"><span>Q1</span> 51视频官网入口主要提供什么内容？</div>
+          <div class="faq-a">51视频官网入口是一个综合性的视频导航页面，主要聚合电影、电视剧、微短剧、综艺、动漫和纪录片等资源。它不直接存储视频文件，而是提供分类入口和推荐列表，帮助用户快速找到想看的内容类型。页面会实时更新热门片单和最新上线动态，适合日常追剧和观影参考。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span>Q2</span> 如何快速找到想看的短剧或电影？</div>
+          <div class="faq-a">您可以使用页面顶部的搜索框输入片名或演员名称，也可以点击“分类入口”选择对应的类型，如“微短剧”或“热门电影”。在分类页面中，内容会按热度或更新时间排序，方便您快速浏览。此外，每部作品的卡片上都有类型标签和简介，可以帮助您判断是否符合口味。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span>Q3</span> 页面上的“热度”数据代表什么？</div>
+          <div class="faq-a">热度值是根据近期用户点击量、收藏量和讨论量综合计算出的参考指标，数值越高代表该内容近期越受关注。热度会动态变化，并非固定评分。您可以将热度作为筛选参考，但最终选择还是建议结合自己的兴趣和简介来判断。一些冷门但高质量的纪录片热度可能不高，却值得一看。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span>Q4</span> 51视频官网入口适合哪些人使用？</div>
+          <div class="faq-a">适合所有喜欢在线观看影视内容的用户，尤其是追剧党和碎片时间较多的上班族。如果您喜欢一次看多集电视剧，或者想找下饭短剧、热门综艺，这个页面能节省您在不同平台间跳转的时间。同时，对于想了解近期流行内容趋势的用户，热门榜单和资讯板块也能提供参考。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span>Q5</span> 如何获取最新更新通知？</div>
+          <div class="faq-a">您可以在“最新更新”板块查看每日更新的内容列表，我们会按时间倒序排列。如果您希望获得更及时的提醒，建议关注页面底部的订阅入口（即将开放），或者定期刷新页面查看。部分热门剧集还会在资讯板块发布上线预告，您可以留意相关标题。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span>Q6</span> 为什么有些内容在分类里找不到？</div>
+          <div class="faq-a">分类页面展示的是当前有资源或推荐列表的内容。由于版权和更新时效的原因，部分内容可能暂时下架或尚未收录。您可以尝试使用搜索功能，或者查看“相关推荐”模块，通常能找到替代内容。如果发现链接错误，欢迎通过页面底部的反馈渠道告知我们。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 用户评论（长短混合） -->
+    <section id="comments" class="section">
+      <div class="section-header">
+        <h2>用户评论 · 最近30天</h2>
+        <span style="color:var(--text-muted); font-size:0.9rem;">共18条讨论</span>
+      </div>
+      <div class="comment-list">
+        <div class="comment-item">
+          <div class="comment-avatar">林</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">林深见鹿</span><span class="comment-date">2026-11-06</span></div><div class="comment-text">51视频官网入口的短剧板块真的宝藏，最近迷上了《萌宠日记》，每集几分钟，笑点密集不拖沓，适合下班路上看。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">张</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">张张包</span><span class="comment-date">2026-11-05</span></div><div class="comment-text">希望增加更多经典老片，现在热门推荐里新剧偏多，偶尔想重温一些老电影。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">陈</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">陈小星</span><span class="comment-date">2026-11-04</span></div><div class="comment-text">分类很清晰，找纪录片很方便。不过建议在纪录片分类下再细分自然、历史、社会，现在有点混在一起。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">a</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">alice_w</span><span class="comment-date">2026-11-03</span></div><div class="comment-text">《暗夜追凶》太好看了！每周等更新，51视频官网入口的更新列表很及时，基本当天就能看到。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">大</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">大熊看剧</span><span class="comment-date">2026-11-02</span></div><div class="comment-text">综艺板块的《极限挑战》户外季很有意思，比棚内好看多了，希望多推荐这类。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">柠</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">柠檬不酸</span><span class="comment-date">2026-11-01</span></div><div class="comment-text">页面设计挺清爽的，没有乱七八糟的广告，这点好评。搜索功能也够用，一般想找的都能搜到。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">老</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">老K观影</span><span class="comment-date">2026-10-30</span></div><div class="comment-text">深度解析那部分写得不错，对内容生态的分析很到位，比单纯堆链接的导航站有营养。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">m</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">momo</span><span class="comment-date">2026-10-29</span></div><div class="comment-text">最近更新的《她的城》大结局有点仓促，不过整体还是好看的，推荐给喜欢都市情感剧的朋友。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">追</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">追风少年</span><span class="comment-date">2026-10-28</span></div><div class="comment-text">希望能增加一个“收藏”功能，看到喜欢的剧可以直接标记，下次不用再搜索。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">安</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">安然1999</span><span class="comment-date">2026-10-27</span></div><div class="comment-text">纪录片《真相背后》质量很高，采访扎实，推荐给了同事。希望51视频官网入口多推这种有深度的内容。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">k</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">kiko酱</span><span class="comment-date">2026-10-26</span></div><div class="comment-text">短剧节奏太快了，有的剧逻辑跟不上，不过打发时间还行。分类里能按评分排序就更好了。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">宇</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">宇文化及</span><span class="comment-date">2026-10-25</span></div><div class="comment-text">移动端适配做得不错，手机上看不费劲，加载也快。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">西</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">西瓜太郎</span><span class="comment-date">2026-10-23</span></div><div class="comment-text">希望热门推荐能多换换花样，每次来都是那几部，虽然知道是热播，但看久了有点疲劳。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">j</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">joan_lee</span><span class="comment-date">2026-10-22</span></div><div class="comment-text">在51视频官网入口找到了《穿越星河》，科幻迷狂喜，特效和剧情都在线，推荐！</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">大</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">大脸猫</span><span class="comment-date">2026-10-20</span></div><div class="comment-text">资讯板块更新挺快的，经常能提前看到新剧预告，不错。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">胖</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">胖虎爱看剧</span><span class="comment-date">2026-10-18</span></div><div class="comment-text">有些老剧画质有点糊，希望能优化片源。不过导航本身做得不错，分类很细。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">y</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">yuki_7</span><span class="comment-date">2026-10-16</span></div><div class="comment-text">页面底部的免责声明写得很清楚，知道这里只是导航站，用起来比较放心。</div></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">小</div>
+          <div class="comment-body"><div class="comment-head"><span class="comment-name">小飞侠</span><span class="comment-date">2026-10-15</span></div><div class="comment-text">希望增加一个“最近浏览”记录，有时候忘了上次看到哪部剧。</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 相关资讯 -->
+    <section id="news" class="section">
+      <div class="section-header">
+        <h2>相关资讯</h2>
+        <a href="/#news" class="more-link">更多资讯 →</a>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-date">2026-11-07</div>
+          <div class="news-title">《暗夜追凶》大结局点映礼即将开启</div>
+          <div class="news-summary">官方宣布本周日举行会员专属点映，主创团队将在线互动，揭秘拍摄幕后故事。</div>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-06</div>
+          <div class="news-title">微短剧市场持续升温，51视频官网入口短剧频道流量翻倍</div>
+          <div class="news-summary">据最新数据，短剧品类观看时长环比增长120%，平台将加大短剧内容推荐权重。</div>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-05</div>
+          <div class="news-title">《极限挑战·户外季》收视创新高</div>
+          <div class="news-summary">最新一期节目收视率破2.5，嘉宾高空挑战片段在社交平台引发热议。</div>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-04</div>
+          <div class="news-title">纪录片《真相背后》获行业推荐</div>
+          <div class="news-summary">该片以扎实的调查手法获得多个纪录片奖项提名，导演表示将继续关注社会议题。</div>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-03</div>
+          <div class="news-title">51视频官网入口新增“按评分排序”功能</div>
+          <div class="news-summary">产品更新后，用户可以在分类页面按评分高低筛选内容，快速找到高口碑作品。</div>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-01</div>
+          <div class="news-title">《穿越星河》第二季正式官宣</div>
+          <div class="news-summary">制作方确认续订第二季，原班人马回归，预计明年春季开拍。</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div style="font-size:1.5rem; font-weight:800; color:#fff;">51视频官网入口</div>
+        <p>提供影视资源导航与观看参考，聚合热门电影、剧集、短剧、综艺等分类，更新及时、分类清晰。本站为内容导航页面，不存储任何视频文件。</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>快速导航</h4>
+          <a href="/#hot">热门推荐</a>
+          <a href="/#latest">最新更新</a>
+          <a href="/#category">分类入口</a>
+          <a href="/#analysis">深度解析</a>
+        </div>
+        <div class="footer-col">
+          <h4>帮助</h4>
+          <a href="/#faq">常见问题</a>
+          <a href="/#comments">用户评论</a>
+          <a href="/#news">资讯动态</a>
+        </div>
+        <div class="footer-col">
+          <h4>友情链接</h4>
+          <a href="#">影视大全</a>
+          <a href="#">短剧之家</a>
+          <a href="#">综艺速递</a>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright">
+      © 2026 51视频官网入口 · 内容导航站 | 本站所有内容均来自互联网公开信息，仅供学习交流 | 如有版权问题请联系删除
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+  </html>
